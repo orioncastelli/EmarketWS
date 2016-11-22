@@ -5,15 +5,21 @@ using System.Web;
 
 namespace EmarketWS
 {
-    public class Category
+    public class List
     {
-            public int idCategory
+        public int idList
         {
             get;
             set;
         }
 
-        public int idStore
+        public int idUser
+        {
+            get;
+            set;
+        }
+
+        public string idProductName
         {
             get;
             set;
