@@ -25,13 +25,13 @@ namespace EmarketWS
         public int idCategory { get; set; }
         public string ProductNameImport { get; set; }
         public string Name { get; set; }
-        public Nullable<decimal> Price { get; set; }
+        public decimal Price { get; set; }
         public string Image { get; set; }
-        public Nullable<System.DateTime> LastUpdtDt { get; set; }
+        public DateTime LastUpdtDt { get; set; }
         public string LastUpdtHr { get; set; }
-        public Nullable<bool> AllBranch { get; set; }
-        public Nullable<int> QtdeOk { get; set; }
-        public Nullable<int> QtdeNok { get; set; }
+        public bool AllBranch { get; set; }
+        public int QtdeOk { get; set; }
+        public int QtdeNok { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserScanEntity> TB_USER_SCAN { get; set; }

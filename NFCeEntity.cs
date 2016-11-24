@@ -23,7 +23,7 @@ namespace EmarketWS
         public int idUser { get; set; }
         public int idScan { get; set; }
         public string idNF { get; set; }
-        public Nullable<int> StoreCNPJ { get; set; }
+        public int StoreCNPJ { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserScanEntity> TB_USER_SCAN { get; set; }

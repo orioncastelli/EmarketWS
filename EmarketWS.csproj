@@ -92,6 +92,11 @@
     <Compile Include="CategoryEntity.cs">
       <DependentUpon>EmarketModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="UserScan.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="Store.cs" />
+    <Compile Include="Product.cs" />
+    <Compile Include="NFC.cs" />
     <Compile Include="IServices.cs" />
     <Compile Include="List.cs" />
     <Compile Include="EmarketModel.Context.cs">

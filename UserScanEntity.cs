@@ -18,8 +18,8 @@ namespace EmarketWS
         public int idProduct { get; set; }
         public int idUser { get; set; }
         public string idNF { get; set; }
-        public Nullable<int> idStore { get; set; }
-        public Nullable<int> Status { get; set; }
+        public int idStore { get; set; }
+        public int Status { get; set; }
         public string Type { get; set; }
     
         public virtual NFCeEntity TB_NFCE { get; set; }
