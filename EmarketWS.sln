@@ -5,6 +5,28 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmarketWS", "EmarketWS.csproj", "{AC3E7D2D-E634-43DA-ABE8-846CF8FA2A12}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "FacebookLogin", "..\FacebookLogin\", "{DF825D35-17D6-4761-A1DF-A96F3F933083}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_60361"
+		Debug.AspNetCompiler.PhysicalPath = "..\FacebookLogin\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_60361\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_60361"
+		Release.AspNetCompiler.PhysicalPath = "..\FacebookLogin\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_60361\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "60361"
+		SlnRelativePath = "..\FacebookLogin\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +37,10 @@ Global
 		{AC3E7D2D-E634-43DA-ABE8-846CF8FA2A12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC3E7D2D-E634-43DA-ABE8-846CF8FA2A12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC3E7D2D-E634-43DA-ABE8-846CF8FA2A12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF825D35-17D6-4761-A1DF-A96F3F933083}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF825D35-17D6-4761-A1DF-A96F3F933083}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF825D35-17D6-4761-A1DF-A96F3F933083}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF825D35-17D6-4761-A1DF-A96F3F933083}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -13,10 +13,10 @@ namespace EmarketWS
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EMarktEntities : DbContext
+    public partial class EmarketEntities : DbContext
     {
-        public EMarktEntities()
-            : base("name=EMarktEntities")
+        public EmarketEntities()
+            : base("name=EmarketEntities")
         {
         }
     

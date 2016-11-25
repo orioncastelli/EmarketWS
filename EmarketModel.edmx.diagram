@@ -4,16 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="398f68c6175f494ca999f1723a32994a" Name="Diagram1">
-        <EntityTypeShape EntityType="EMarktModel.CategoryEntity" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EMarktModel.ListEntity" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EMarktModel.NFCeEntity" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="EMarktModel.ProductEntity" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="EMarktModel.StoreEntity" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EMarktModel.UserEntity" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EMarktModel.UserScanEntity" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="EMarktModel.FK_TB_USER__USERSCAN__TB_NFCE" ManuallyRouted="false" />
-        <AssociationConnector Association="EMarktModel.FK_TB_USER__AK_USER_S_TB_PRODU" ManuallyRouted="false" />
+      <Diagram DiagramId="391436c6ae0c4a4684308c379a716c8a" Name="Diagram1">
+        <EntityTypeShape EntityType="EmarketModel.CategoryEntity" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmarketModel.ListEntity" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmarketModel.NFCeEntity" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmarketModel.ProductEntity" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmarketModel.StoreEntity" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmarketModel.UserEntity" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmarketModel.UserScanEntity" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="EmarketModel.FK_TB_USER__USERSCAN__TB_NFCE" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

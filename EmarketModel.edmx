@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="EMarktModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="EmarketModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="TB_CATEGORY">
           <Key>
             <PropertyRef Name="idCategory" />
@@ -44,7 +44,8 @@
           <Property Name="idStore" Type="int" Nullable="false" />
           <Property Name="idProduct" Type="int" Nullable="false" />
           <Property Name="idCategory" Type="int" Nullable="false" />
-          <Property Name="ProductNameImport" Type="nvarchar" MaxLength="255" />
+          <Property Name="ProductImportCode" Type="nvarchar" MaxLength="255" />
+          <Property Name="ProductImportName" Type="nvarchar" MaxLength="255" />
           <Property Name="Name" Type="varchar" MaxLength="255" />
           <Property Name="Price" Type="numeric" Precision="18" Scale="0" />
           <Property Name="Image" Type="varchar" MaxLength="255" />
@@ -94,20 +95,6 @@
           <Property Name="Status" Type="int" />
           <Property Name="Type" Type="char" MaxLength="1" />
         </EntityType>
-        <Association Name="FK_TB_USER__AK_USER_S_TB_PRODU">
-          <End Role="TB_PRODUCT" Type="Self.TB_PRODUCT" Multiplicity="0..1" />
-          <End Role="TB_USER_SCAN" Type="Self.TB_USER_SCAN" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TB_PRODUCT">
-              <PropertyRef Name="idStore" />
-              <PropertyRef Name="idProduct" />
-            </Principal>
-            <Dependent Role="TB_USER_SCAN">
-              <PropertyRef Name="idStore" />
-              <PropertyRef Name="idProduct" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_TB_USER__USERSCAN__TB_NFCE">
           <End Role="TB_NFCE" Type="Self.TB_NFCE" Multiplicity="0..1" />
           <End Role="TB_USER_SCAN" Type="Self.TB_USER_SCAN" Multiplicity="*" />
@@ -124,7 +111,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="EMarktModelStoreContainer">
+        <EntityContainer Name="EmarketModelStoreContainer">
           <EntitySet Name="TB_CATEGORY" EntityType="Self.TB_CATEGORY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TB_LIST" EntityType="Self.TB_LIST" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TB_NFCE" EntityType="Self.TB_NFCE" Schema="dbo" store:Type="Tables" />
@@ -132,10 +119,6 @@
           <EntitySet Name="TB_STORE" EntityType="Self.TB_STORE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TB_USER" EntityType="Self.TB_USER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TB_USER_SCAN" EntityType="Self.TB_USER_SCAN" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_TB_USER__AK_USER_S_TB_PRODU" Association="Self.FK_TB_USER__AK_USER_S_TB_PRODU">
-            <End Role="TB_PRODUCT" EntitySet="TB_PRODUCT" />
-            <End Role="TB_USER_SCAN" EntitySet="TB_USER_SCAN" />
-          </AssociationSet>
           <AssociationSet Name="FK_TB_USER__USERSCAN__TB_NFCE" Association="Self.FK_TB_USER__USERSCAN__TB_NFCE">
             <End Role="TB_NFCE" EntitySet="TB_NFCE" />
             <End Role="TB_USER_SCAN" EntitySet="TB_USER_SCAN" />
@@ -145,7 +128,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="EMarktModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="EmarketModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="CategoryEntity">
           <Key>
             <PropertyRef Name="idCategory" />
@@ -186,7 +169,8 @@
           <Property Name="idStore" Type="Int32" Nullable="false" />
           <Property Name="idProduct" Type="Int32" Nullable="false" />
           <Property Name="idCategory" Type="Int32" Nullable="false" />
-          <Property Name="ProductNameImport" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ProductImportCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ProductImportName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="Image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
@@ -195,7 +179,6 @@
           <Property Name="AllBranch" Type="Boolean" />
           <Property Name="QtdeOk" Type="Int32" />
           <Property Name="QtdeNok" Type="Int32" />
-          <NavigationProperty Name="TB_USER_SCAN" Relationship="Self.FK_TB_USER__AK_USER_S_TB_PRODU" FromRole="TB_PRODUCT" ToRole="TB_USER_SCAN" />
         </EntityType>
         <EntityType Name="StoreEntity">
           <Key>
@@ -237,11 +220,10 @@
           <Property Name="Status" Type="Int32" />
           <Property Name="Type" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="TB_NFCE" Relationship="Self.FK_TB_USER__USERSCAN__TB_NFCE" FromRole="TB_USER_SCAN" ToRole="TB_NFCE" />
-          <NavigationProperty Name="TB_PRODUCT" Relationship="Self.FK_TB_USER__AK_USER_S_TB_PRODU" FromRole="TB_USER_SCAN" ToRole="TB_PRODUCT" />
         </EntityType>
         <Association Name="FK_TB_USER__USERSCAN__TB_NFCE">
-          <End Role="TB_NFCE" Type="EMarktModel.NFCeEntity" Multiplicity="0..1" />
-          <End Role="TB_USER_SCAN" Type="EMarktModel.UserScanEntity" Multiplicity="*" />
+          <End Role="TB_NFCE" Type="EmarketModel.NFCeEntity" Multiplicity="0..1" />
+          <End Role="TB_USER_SCAN" Type="EmarketModel.UserScanEntity" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TB_NFCE">
               <PropertyRef Name="idNF" />
@@ -255,34 +237,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TB_USER__AK_USER_S_TB_PRODU">
-          <End Role="TB_PRODUCT" Type="EMarktModel.ProductEntity" Multiplicity="0..1" />
-          <End Role="TB_USER_SCAN" Type="EMarktModel.UserScanEntity" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TB_PRODUCT">
-              <PropertyRef Name="idStore" />
-              <PropertyRef Name="idProduct" />
-            </Principal>
-            <Dependent Role="TB_USER_SCAN">
-              <PropertyRef Name="idStore" />
-              <PropertyRef Name="idProduct" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="EMarktEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="CategoryEntities" EntityType="EMarktModel.CategoryEntity" />
-          <EntitySet Name="ListEntities" EntityType="EMarktModel.ListEntity" />
-          <EntitySet Name="NFCeEntities" EntityType="EMarktModel.NFCeEntity" />
-          <EntitySet Name="ProductEntities" EntityType="EMarktModel.ProductEntity" />
-          <EntitySet Name="StoreEntities" EntityType="EMarktModel.StoreEntity" />
-          <EntitySet Name="UserEntities" EntityType="EMarktModel.UserEntity" />
-          <EntitySet Name="UserScanEntities" EntityType="EMarktModel.UserScanEntity" />
+        <EntityContainer Name="EmarketEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CategoryEntities" EntityType="EmarketModel.CategoryEntity" />
+          <EntitySet Name="ListEntities" EntityType="EmarketModel.ListEntity" />
+          <EntitySet Name="NFCeEntities" EntityType="EmarketModel.NFCeEntity" />
+          <EntitySet Name="ProductEntities" EntityType="EmarketModel.ProductEntity" />
+          <EntitySet Name="StoreEntities" EntityType="EmarketModel.StoreEntity" />
+          <EntitySet Name="UserEntities" EntityType="EmarketModel.UserEntity" />
+          <EntitySet Name="UserScanEntities" EntityType="EmarketModel.UserScanEntity" />
           <AssociationSet Name="FK_TB_USER__USERSCAN__TB_NFCE" Association="Self.FK_TB_USER__USERSCAN__TB_NFCE">
             <End Role="TB_NFCE" EntitySet="NFCeEntities" />
-            <End Role="TB_USER_SCAN" EntitySet="UserScanEntities" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TB_USER__AK_USER_S_TB_PRODU" Association="Self.FK_TB_USER__AK_USER_S_TB_PRODU">
-            <End Role="TB_PRODUCT" EntitySet="ProductEntities" />
             <End Role="TB_USER_SCAN" EntitySet="UserScanEntities" />
           </AssociationSet>
         </EntityContainer>
@@ -291,9 +255,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="EMarktModelStoreContainer" CdmEntityContainer="EMarktEntities">
+        <EntityContainerMapping StorageEntityContainer="EmarketModelStoreContainer" CdmEntityContainer="EmarketEntities">
           <EntitySetMapping Name="CategoryEntities">
-            <EntityTypeMapping TypeName="EMarktModel.CategoryEntity">
+            <EntityTypeMapping TypeName="EmarketModel.CategoryEntity">
               <MappingFragment StoreEntitySet="TB_CATEGORY">
                 <ScalarProperty Name="idCategory" ColumnName="idCategory" />
                 <ScalarProperty Name="idStore" ColumnName="idStore" />
@@ -302,7 +266,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ListEntities">
-            <EntityTypeMapping TypeName="EMarktModel.ListEntity">
+            <EntityTypeMapping TypeName="EmarketModel.ListEntity">
               <MappingFragment StoreEntitySet="TB_LIST">
                 <ScalarProperty Name="idList" ColumnName="idList" />
                 <ScalarProperty Name="idUser" ColumnName="idUser" />
@@ -312,7 +276,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NFCeEntities">
-            <EntityTypeMapping TypeName="EMarktModel.NFCeEntity">
+            <EntityTypeMapping TypeName="EmarketModel.NFCeEntity">
               <MappingFragment StoreEntitySet="TB_NFCE">
                 <ScalarProperty Name="idUser" ColumnName="idUser" />
                 <ScalarProperty Name="idScan" ColumnName="idScan" />
@@ -322,12 +286,13 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProductEntities">
-            <EntityTypeMapping TypeName="EMarktModel.ProductEntity">
+            <EntityTypeMapping TypeName="EmarketModel.ProductEntity">
               <MappingFragment StoreEntitySet="TB_PRODUCT">
                 <ScalarProperty Name="idStore" ColumnName="idStore" />
                 <ScalarProperty Name="idProduct" ColumnName="idProduct" />
                 <ScalarProperty Name="idCategory" ColumnName="idCategory" />
-                <ScalarProperty Name="ProductNameImport" ColumnName="ProductNameImport" />
+                <ScalarProperty Name="ProductImportCode" ColumnName="ProductImportCode" />
+                <ScalarProperty Name="ProductImportName" ColumnName="ProductImportName" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Image" ColumnName="Image" />
@@ -340,7 +305,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="StoreEntities">
-            <EntityTypeMapping TypeName="EMarktModel.StoreEntity">
+            <EntityTypeMapping TypeName="EmarketModel.StoreEntity">
               <MappingFragment StoreEntitySet="TB_STORE">
                 <ScalarProperty Name="idStore" ColumnName="idStore" />
                 <ScalarProperty Name="idBranch" ColumnName="idBranch" />
@@ -352,7 +317,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UserEntities">
-            <EntityTypeMapping TypeName="EMarktModel.UserEntity">
+            <EntityTypeMapping TypeName="EmarketModel.UserEntity">
               <MappingFragment StoreEntitySet="TB_USER">
                 <ScalarProperty Name="idUser" ColumnName="idUser" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -367,7 +332,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UserScanEntities">
-            <EntityTypeMapping TypeName="EMarktModel.UserScanEntity">
+            <EntityTypeMapping TypeName="EmarketModel.UserScanEntity">
               <MappingFragment StoreEntitySet="TB_USER_SCAN">
                 <ScalarProperty Name="idScan" ColumnName="idScan" />
                 <ScalarProperty Name="idProduct" ColumnName="idProduct" />

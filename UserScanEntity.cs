@@ -23,6 +23,5 @@ namespace EmarketWS
         public string Type { get; set; }
     
         public virtual NFCeEntity TB_NFCE { get; set; }
-        public virtual ProductEntity TB_PRODUCT { get; set; }
     }
 }

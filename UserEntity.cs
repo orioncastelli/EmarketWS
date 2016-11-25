@@ -21,7 +21,7 @@ namespace EmarketWS
         public string Picture { get; set; }
         public string Email { get; set; }
         public int CPF { get; set; }
-        public int  CNPJ { get; set; }
+        public int CNPJ { get; set; }
         public string Hash { get; set; }
     }
 }

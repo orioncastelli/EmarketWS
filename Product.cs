@@ -25,7 +25,13 @@ namespace EmarketWS
             set;
         }
 
-        public String ProductNameImport
+        public String ProductImportName
+        {
+            get;
+            set;
+        }
+
+        public String ProductImportCode
         {
             get;
             set;

@@ -14,7 +14,7 @@ namespace EmarketWS
         /**************************************** CATEGORIES *******************************************/
         public bool createCategory(Category category)
         {
-            using (EMarktEntities mdeEmarket = new EMarktEntities())
+            using (EmarketEntities mdeEmarket = new EmarketEntities())
             {
                 try
                 {
@@ -37,7 +37,7 @@ namespace EmarketWS
 
         public bool deleteCategory(Category category)
         {
-            using (EMarktEntities mdeEmarket = new EMarktEntities())
+            using (EmarketEntities mdeEmarket = new EmarketEntities())
             {
                 try
                 {
@@ -57,7 +57,7 @@ namespace EmarketWS
 
         public bool editCategory(Category category)
         {
-            using (EMarktEntities mdeEmarket = new EMarktEntities())
+            using (EmarketEntities mdeEmarket = new EmarketEntities())
             {
                 try
                 {
@@ -79,7 +79,7 @@ namespace EmarketWS
 
         public Category findCategory(String id)
         {
-            using (EMarktEntities mdeEmarket = new EMarktEntities())
+            using (EmarketEntities mdeEmarket = new EmarketEntities())
             {
 
                 int idCategory = Convert.ToInt32(id);
@@ -94,7 +94,7 @@ namespace EmarketWS
 
         public List<Category> findAllCategory()
         {
-            using (EMarktEntities mdeEmarket = new EMarktEntities())
+            using (EmarketEntities mdeEmarket = new EmarketEntities())
             {
                 return mdeEmarket.CategoryEntities.Select(cat => new Category
                 {
@@ -110,7 +110,7 @@ namespace EmarketWS
         /**************************************** LIST *************************************************/
         public bool createList(List List)
         {
-            using (EMarktEntities mdeEmarket = new EMarktEntities())
+            using (EmarketEntities mdeEmarket = new EmarketEntities())
             {
                 try
                 {
@@ -134,7 +134,7 @@ namespace EmarketWS
 
         public bool deleteList(List List)
         {
-            using (EMarktEntities mdeEmarket = new EMarktEntities())
+            using (EmarketEntities mdeEmarket = new EmarketEntities())
             {
                 try
                 {
@@ -154,7 +154,7 @@ namespace EmarketWS
 
         public bool editList(List List)
         {
-            using (EMarktEntities mdeEmarket = new EMarktEntities())
+            using (EmarketEntities mdeEmarket = new EmarketEntities())
             {
                 try
                 {
@@ -180,7 +180,7 @@ namespace EmarketWS
 
         public List findList(string id)
         {
-            using (EMarktEntities mdeEmarket = new EMarktEntities())
+            using (EmarketEntities mdeEmarket = new EmarketEntities())
             {
 
                 int idList = Convert.ToInt32(id);
@@ -196,7 +196,7 @@ namespace EmarketWS
 
         public List<List> findAllList()
         {
-            using (EMarktEntities mdeEmarket = new EMarktEntities())
+            using (EmarketEntities mdeEmarket = new EmarketEntities())
             {
                 return mdeEmarket.ListEntities.Select(list => new List
                 {
@@ -210,7 +210,7 @@ namespace EmarketWS
 
         public List<List> findListByUser(string idUser)
         {
-            using (EMarktEntities mdeEmarket = new EMarktEntities())
+            using (EmarketEntities mdeEmarket = new EmarketEntities())
             {
                 int id = Convert.ToInt32(idUser);
                 return mdeEmarket.ListEntities.Where(list => list.idUser == id).Select(list => new List
@@ -228,7 +228,7 @@ namespace EmarketWS
         /**************************************** NFC **************************************************/
         public bool createNFC(NFC objNFC)
         {
-            using (EMarktEntities mdeEmarket = new EMarktEntities())
+            using (EmarketEntities mdeEmarket = new EmarketEntities())
             {
                 try
                 {
@@ -252,7 +252,7 @@ namespace EmarketWS
 
         public bool deleteNFC(NFC objNFC)
         {
-            using (EMarktEntities mdeEmarket = new EMarktEntities())
+            using (EmarketEntities mdeEmarket = new EmarketEntities())
             {
                 try
                 {
@@ -271,7 +271,7 @@ namespace EmarketWS
 
         public bool editNFC(NFC objNFC)
         {
-            using (EMarktEntities mdeEmarket = new EMarktEntities())
+            using (EmarketEntities mdeEmarket = new EmarketEntities())
             {
                 try
                 {
@@ -298,7 +298,7 @@ namespace EmarketWS
 
         public NFC findNFC(string id)
         {
-            using (EMarktEntities mdeEmarket = new EMarktEntities())
+            using (EmarketEntities mdeEmarket = new EmarketEntities())
             {
 
                 return mdeEmarket.NFCeEntities.Where(objNFC => objNFC.idNF == id).Select(objNFC => new NFC
@@ -312,7 +312,7 @@ namespace EmarketWS
 
         public List<NFC> findAllNFC()
         {
-            using (EMarktEntities mdeEmarket = new EMarktEntities())
+            using (EmarketEntities mdeEmarket = new EmarketEntities())
             {
                 return mdeEmarket.NFCeEntities.Select(NFC => new NFC
                 {
@@ -326,7 +326,7 @@ namespace EmarketWS
 
         public List<NFC> findNFCByUser(string idUser)
         {
-            using (EMarktEntities mdeEmarket = new EMarktEntities())
+            using (EmarketEntities mdeEmarket = new EmarketEntities())
             {
                 int id = Convert.ToInt32(idUser);
                 return mdeEmarket.NFCeEntities.Where(objNFC => objNFC.idUser == id).Select(objNFC => new NFC
@@ -343,7 +343,7 @@ namespace EmarketWS
         /************************************* Product *************************************************/
         public Product findProduct(string id)
         {
-            using (EMarktEntities mdeEmarket = new EMarktEntities())
+            using (EmarketEntities mdeEmarket = new EmarketEntities())
             {
 
                 int idProduct = Convert.ToInt32(id);
@@ -352,7 +352,8 @@ namespace EmarketWS
                     idProduct = Product.idProduct,
                     idCategory = Product.idCategory,
                     idStore = Product.idStore,
-                    ProductNameImport = Product.ProductNameImport,
+                    ProductImportCode = Product.ProductImportCode,
+                    ProductImportName = Product.ProductImportName,
                     Name = Product.Name,
                     Price = Product.Price,
                     Image = Product.Image,
@@ -367,7 +368,7 @@ namespace EmarketWS
 
         public List<Product> findProductByUser(Product Filter)
         {
-            using (EMarktEntities mdeEmarket = new EMarktEntities())
+            using (EmarketEntities mdeEmarket = new EmarketEntities())
             {
                  return mdeEmarket.ProductEntities.Where(product => product.idProduct == Filter.idProduct &&
                                                                     product.Name.Contains(Filter.Name)).Select(product => new Product
@@ -375,7 +376,7 @@ namespace EmarketWS
                     idProduct = product.idProduct,
                     idCategory = product.idCategory,
                     idStore = product.idStore,
-                    ProductNameImport = product.ProductNameImport,
+                    ProductImportName = product.ProductImportName,
                     Name = product.Name,
                     Price = product.Price,
                     Image = product.Image,
@@ -390,7 +391,7 @@ namespace EmarketWS
 
         public bool createProduct(Product Product)
         {
-            using (EMarktEntities mdeEmarket = new EMarktEntities())
+            using (EmarketEntities mdeEmarket = new EmarketEntities())
             {
                 try
                 {
@@ -398,7 +399,7 @@ namespace EmarketWS
                     EntProduct.idProduct = Product.idProduct;
                     EntProduct.idCategory = Product.idCategory;
                     EntProduct.idStore = Product.idStore;
-                    EntProduct.ProductNameImport = Product.ProductNameImport;
+                    EntProduct.ProductImportName = Product.ProductImportName;
                     EntProduct.Name = Product.Name;
                     EntProduct.Price = Product.Price;
                     EntProduct.Image = Product.Image;
@@ -420,7 +421,7 @@ namespace EmarketWS
 
         public bool editProduct(Product Product)
         {
-            using (EMarktEntities mdeEmarket = new EMarktEntities())
+            using (EmarketEntities mdeEmarket = new EmarketEntities())
             {
                 try
                 {
@@ -430,7 +431,7 @@ namespace EmarketWS
                     EntProduct.idProduct = Product.idProduct;
                     EntProduct.idCategory = Product.idCategory;
                     EntProduct.idStore = Product.idStore;
-                    EntProduct.ProductNameImport = Product.ProductNameImport;
+                    EntProduct.ProductImportName = Product.ProductImportName;
                     EntProduct.Name = Product.Name;
                     EntProduct.Price = Product.Price;
                     EntProduct.Image = Product.Image;
@@ -451,7 +452,7 @@ namespace EmarketWS
 
         public bool deleteProduct(Product Product)
         {
-            using (EMarktEntities mdeEmarket = new EMarktEntities())
+            using (EmarketEntities mdeEmarket = new EmarketEntities())
             {
                 try
                 {
@@ -473,7 +474,7 @@ namespace EmarketWS
         /**************************************** STORES ***********************************************/
         public Store findStore(string id)
         {
-            using (EMarktEntities mdeEmarket = new EMarktEntities())
+            using (EmarketEntities mdeEmarket = new EmarketEntities())
             {
 
                 int idStore = Convert.ToInt32(id);
@@ -491,7 +492,7 @@ namespace EmarketWS
 
         public bool createStore(Store objStore)
         {
-            using (EMarktEntities mdeEmarket = new EMarktEntities())
+            using (EmarketEntities mdeEmarket = new EmarketEntities())
             {
                 try
                 {
@@ -515,7 +516,7 @@ namespace EmarketWS
 
         public bool editStore(Store objStore)
         {
-            using (EMarktEntities mdeEmarket = new EMarktEntities())
+            using (EmarketEntities mdeEmarket = new EmarketEntities())
             {
                 try
                 {
@@ -539,7 +540,7 @@ namespace EmarketWS
 
         public bool deleteStore(Store objStore)
         {
-            using (EMarktEntities mdeEmarket = new EMarktEntities())
+            using (EmarketEntities mdeEmarket = new EmarketEntities())
             {
                 try
                 {
@@ -560,7 +561,7 @@ namespace EmarketWS
         /**************************************** USER *************************************************/
         public User findUser(string id)
         {
-            using (EMarktEntities mdeEmarket = new EMarktEntities())
+            using (EmarketEntities mdeEmarket = new EmarketEntities())
             {
 
                 int idUser = Convert.ToInt32(id);
@@ -581,7 +582,7 @@ namespace EmarketWS
 
         public bool createUser(User objUser)
         {
-            using (EMarktEntities mdeEmarket = new EMarktEntities())
+            using (EmarketEntities mdeEmarket = new EmarketEntities())
             {
                 try
                 {
@@ -608,7 +609,7 @@ namespace EmarketWS
 
         public bool editUser(User objUser)
         {
-            using (EMarktEntities mdeEmarket = new EMarktEntities())
+            using (EmarketEntities mdeEmarket = new EmarketEntities())
             {
                 try
                 {
@@ -635,7 +636,7 @@ namespace EmarketWS
 
         public bool deleteUser(User objUser)
         {
-            using (EMarktEntities mdeEmarket = new EMarktEntities())
+            using (EmarketEntities mdeEmarket = new EmarketEntities())
             {
                 try
                 {
@@ -656,7 +657,7 @@ namespace EmarketWS
         /*********************************** USER_SCAN *************************************************/
         public UserScan findUserScan(string id)
         {
-            using (EMarktEntities mdeEmarket = new EMarktEntities())
+            using (EmarketEntities mdeEmarket = new EmarketEntities())
             {
 
                 int idScan = Convert.ToInt32(id);
@@ -675,7 +676,7 @@ namespace EmarketWS
 
         public bool createUserScan(UserScan objUserScan)
         {
-            using (EMarktEntities mdeEmarket = new EMarktEntities())
+            using (EmarketEntities mdeEmarket = new EmarketEntities())
             {
                 try
                 {
@@ -700,7 +701,7 @@ namespace EmarketWS
 
         public bool editUserScan(UserScan objUserScan)
         {
-            using (EMarktEntities mdeEmarket = new EMarktEntities())
+            using (EmarketEntities mdeEmarket = new EmarketEntities())
             {
                 try
                 {
@@ -726,7 +727,7 @@ namespace EmarketWS
 
         public bool deleteUserScan(UserScan objUserScan)
         {
-            using (EMarktEntities mdeEmarket = new EMarktEntities())
+            using (EmarketEntities mdeEmarket = new EmarketEntities())
             {
                 try
                 {
